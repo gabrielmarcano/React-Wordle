@@ -6,11 +6,11 @@ function App() {
   const [solution, setSolution] = useState(null)
 
   useEffect(() => {
-    fetch('http://localhost:3001/solutions')
+    fetch('db.json')
       .then(res => res.json())
-      .then(json => {
+      .then(({solutions}) => {
         // random int for random word
-        const randomSolution = json[Math.floor(Math.random()*json.length)]
+        const randomSolution = solutions[Math.floor(Math.random()*solutions.length)]
         setSolution(randomSolution.word)
         console.log('solution:', randomSolution.word)
       })

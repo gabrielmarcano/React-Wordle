@@ -4,10 +4,10 @@ export default function Keypad({ usedKeys }) {
   const [letters, setLetters] = useState(null)
 
   useEffect(() => {
-    fetch('http://localhost:3001/qwerty')
+    fetch('db.json')
       .then(res => res.json())
-      .then(json => {
-        setLetters(json)
+      .then(({qwerty}) => {
+        setLetters(qwerty)
       })
   }, [])
 
