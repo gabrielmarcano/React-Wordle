@@ -168,27 +168,23 @@
   "solutions": [
     {
       "id": 0,
-      "word": "gatos"
+      "word": "ninja"
     },
     {
       "id": 1,
-      "word": "macho"
+      "word": "relax"
     },
     {
       "id": 2,
-      "word": "cerca"
+      "word": "coins"
     },
     {
       "id": 3,
-      "word": "calor"
+      "word": "hello"
     },
     {
       "id": 4,
-      "word": "resta"
-    },
-    {
-      "id": 5,
-      "word": "menta"
+      "word": "cores"
     }
   ]
 }
