@@ -29,23 +29,19 @@ export default function Wordle({ solution }) {
   useEffect(() => {
 
     window.addEventListener('click', handleClick)
-    window.addEventListener('touchstart', handleClick)
 
     if (isCorrect) {
       setTimeout(() => setShowModal(true), 2000)
       window.removeEventListener('click', handleClick)
-      window.removeEventListener('touchstart', handleClick)
     }
 
     if (turn > 5) {
       setTimeout(() => setShowModal(true), 2000)
       window.removeEventListener('click', handleClick)
-      window.removeEventListener('touchstart', handleClick)
     }
 
     return () => { 
       window.removeEventListener('click', handleClick)
-      window.removeEventListener('touchstart', handleClick)
     }
     
   }, [handleClick, isCorrect, turn])
