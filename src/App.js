@@ -6,7 +6,7 @@ function App() {
   const [solution, setSolution] = useState(null)
 
   useEffect(() => {
-    fetch('db.json')
+    fetch(process.env.PUBLIC_URL + '/db.json')
       .then(res => res.json())
       .then(({solutions}) => {
         // random int for random word
