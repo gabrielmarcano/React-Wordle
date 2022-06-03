@@ -16,7 +16,7 @@ export default function Keypad({ usedKeys }) {
       {letters && letters.map((l) => {
         const color = usedKeys[l.key]
         return (
-          <div key={l.key} className={color}>{l.key.toUpperCase()}</div>
+          <div key={l.key} className={(l.key.toUpperCase() === 'DEL' || l.key.toUpperCase() === 'ENTER' ? "wide" : color)}>{l.key.toUpperCase()}</div>
         )
       })}
     </div>
