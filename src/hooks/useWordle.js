@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const useWordle = (solution) => {
+const useWordle = (solution, words) => {
   const [turn, setTurn] = useState(0)
   const [currentGuess, setCurrentGuess] = useState('')
   const [guesses, setGuesses] = useState([...Array(6)]) // each guess is an array
@@ -100,6 +100,12 @@ const useWordle = (solution) => {
         console.log('you already tried that word')
         return
       }
+      // do not allow fake words 
+      if (!words.includes(currentGuess)) {
+        alert('That word doesn\'t exist')
+        console.log('The word doesn\'t exist')
+        return
+      }
       // check word is 5 chars long
       if (currentGuess.length !== 5) {
         console.log('word must be 5 chars long')
@@ -141,6 +147,12 @@ const useWordle = (solution) => {
         if (history.includes(currentGuess)) {
           alert('You already used that word')
           console.log('you already tried that word')
+          return
+        }
+        // do not allow fake words 
+        if (!words.includes(currentGuess)) {
+          alert('That word doesn\'t exist')
+          console.log('The word doesn\'t exist')
           return
         }
         // check word is 5 chars long

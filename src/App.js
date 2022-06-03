@@ -4,23 +4,32 @@ import Wordle from "./components/Wordle"
 function App() {
 
   const [solution, setSolution] = useState(null)
+  const [words, setWords] = useState(null)
 
   useEffect(() => {
     fetch(process.env.PUBLIC_URL + '/db.json')
       .then(res => res.json())
       .then(({solutions}) => {
+
+        const wordsArray = []
+        
+        solutions.map(({word}) => {
+          wordsArray.push(word)
+        })
+
+        setWords(wordsArray)
         // random int for random word
         const randomSolution = solutions[Math.floor(Math.random()*solutions.length)]
         setSolution(randomSolution.word)
         console.log('solution:', randomSolution.word)
       })
 
-  }, [setSolution])
+  }, [setSolution, setWords])
 
   return (
     <div className="App">
       <h1 className="title">Wordle</h1>
-      {solution && <Wordle solution={solution} />}
+      {solution && <Wordle solution={solution} words={words}/>}
     </div>
   );
 }

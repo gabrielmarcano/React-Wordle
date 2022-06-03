@@ -4,9 +4,9 @@ import Grid from './Grid'
 import Keypad from './Keypad'
 import Modal from './Modal'
 
-export default function Wordle({ solution }) {
+export default function Wordle({ solution, words }) {
 
-  const { currentGuess, handleKeyup, handleClick, guesses, isCorrect, turn, usedKeys } = useWordle(solution)
+  const { currentGuess, handleKeyup, handleClick, guesses, isCorrect, turn, usedKeys } = useWordle(solution, words)
   const [showModal, setShowModal] = useState(false)
 
   useEffect(() => {
