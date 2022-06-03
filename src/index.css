@@ -88,6 +88,7 @@ h1.title, h2 {
 .keypad {
   max-width: 500px;
   margin: 20px auto;
+  padding: 0 10px;
   display: grid;
   grid-template-columns: repeat(20, 1fr);
   grid-template-rows: repeat(3, 60px);
