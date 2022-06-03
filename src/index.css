@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   text-align: center;
   font-size: 1em;
@@ -84,18 +88,27 @@ h1.title, h2 {
 .keypad {
   max-width: 500px;
   margin: 20px auto;
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: repeat(3, 60px);
 }
 
 .keypad > div {
-  margin: 5px;
-  width: 40px;
+  font-size: 0.85rem;
+  margin: 3px;
+  width: auto;
   height: 50px;
   background: #eee;
   display: inline-block;
+  grid-column: span 2;
   user-select: none;
   border-radius: 6px;
   line-height: 50px;
   transition: all 0.15s ease-in;
+}
+
+.keypad > div.wide {
+  grid-column: span 3;
 }
 
 .keypad > div:hover {
