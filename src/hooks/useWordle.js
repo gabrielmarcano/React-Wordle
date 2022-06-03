@@ -94,10 +94,10 @@ const useWordle = (solution, words) => {
         console.log('you used all your guesses')
         return
       }
-      // do not allow duplicate words
-      if (history.includes(currentGuess)) {
-        alert('You already used that word')
-        console.log('you already tried that word')
+      // check word is 5 chars long
+      if (currentGuess.length !== 5) {
+        alert('The word must be 5 chars long')
+        console.log('word must be 5 chars long')
         return
       }
       // do not allow fake words 
@@ -106,9 +106,10 @@ const useWordle = (solution, words) => {
         console.log('The word doesn\'t exist')
         return
       }
-      // check word is 5 chars long
-      if (currentGuess.length !== 5) {
-        console.log('word must be 5 chars long')
+      // do not allow duplicate words
+      if (history.includes(currentGuess)) {
+        alert('You already used that word')
+        console.log('you already tried that word')
         return
       }
 
@@ -143,10 +144,10 @@ const useWordle = (solution, words) => {
           console.log('you used all your guesses')
           return
         }
-        // do not allow duplicate words
-        if (history.includes(currentGuess)) {
-          alert('You already used that word')
-          console.log('you already tried that word')
+        // check word is 5 chars long
+        if (currentGuess.length !== 5) {
+          alert('The word must be 5 chars long')
+          console.log('word must be 5 chars long')
           return
         }
         // do not allow fake words 
@@ -155,9 +156,10 @@ const useWordle = (solution, words) => {
           console.log('The word doesn\'t exist')
           return
         }
-        // check word is 5 chars long
-        if (currentGuess.length !== 5) {
-          console.log('word must be 5 chars long')
+        // do not allow duplicate words
+        if (history.includes(currentGuess)) {
+          alert('You already used that word')
+          console.log('you already tried that word')
           return
         }
   
