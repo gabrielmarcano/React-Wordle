@@ -15,6 +15,7 @@ function App() {
         
         solutions.map(({word}) => {
           wordsArray.push(word)
+          return null
         })
 
         setWords(wordsArray)
