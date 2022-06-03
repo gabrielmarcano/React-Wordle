@@ -128,11 +128,44 @@ const useWordle = (solution) => {
 
   const handleClick = ({ target }) => {
 
+
     if (document.querySelector('div.keypad').contains(target)) {
-      if (currentGuess.length < 5) {
+
+      if (target.innerText.toUpperCase() === 'ENTER') {
+        // only add guess if turn is less than 5
+        if (turn > 5) {
+          console.log('you used all your guesses')
+          return
+        }
+        // do not allow duplicate words
+        if (history.includes(currentGuess)) {
+          alert('You already used that word')
+          console.log('you already tried that word')
+          return
+        }
+        // check word is 5 chars long
+        if (currentGuess.length !== 5) {
+          console.log('word must be 5 chars long')
+          return
+        }
+  
+        const formatted = formatGuess()
+        addNewGuess(formatted)
+      }
+      
+      if (target.innerText.toUpperCase() === 'DEL') {
         setCurrentGuess(prev => {
-          return prev + target.innerText.toLowerCase()
+          return prev.slice(0, -1)
         })
+        return
+      }
+
+      if (/^[ÑñA-Za-z]$/.test(target.innerText)) {
+        if (currentGuess.length < 5) {
+          setCurrentGuess(prev => {
+            return prev + target.innerText.toLowerCase()
+          })
+        }
       }
     }
   }
