@@ -9,7 +9,7 @@ function App() {
   useEffect(() => {
     fetch(process.env.PUBLIC_URL + '/db.json')
       .then(res => res.json())
-      .then(({solutions}) => {
+      .then(({solutions: {spanish: solutions}}) => {
 
         const wordsArray = []
         
